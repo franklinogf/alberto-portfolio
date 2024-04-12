@@ -1,0 +1,29 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+const layoutTitle = `${title ? `${title} - ` : ""} Alberto Gonzalez - Portfolio`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <title>{layoutTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #f9f4e1;
+    color: #060200;
+  }
+</style>
