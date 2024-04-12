@@ -1,9 +1,9 @@
 ---
 import HomeTitle from "../components/HomeTitle";
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<Layout title="Alberto Gonzalez - Portfolio">
+<MainLayout>
   <main class="flex min-h-screen flex-col items-center justify-center">
     <HomeTitle client:load />
     <h2 class="text-2xl font-semibold">
@@ -11,4 +11,4 @@ import Layout from "../layouts/Layout.astro";
     </h2>
     <a href="/home" class="fixed inset-0"></a>
   </main>
-</Layout>
+</MainLayout>
