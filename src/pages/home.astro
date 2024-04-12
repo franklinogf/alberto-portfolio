@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+const imageList = [
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+  {
+    url: "https://dummyimage.com/300x400.jpg",
+  },
+];
+---
+
+<Layout title="Home">
+  <section class="grid grid-cols-3 w-[900px] gap-x-8 gap-y-2 mx-auto">
+    {
+      imageList.map((img) => (
+        <article class="[&:nth-child(3n+2)]:mt-10 overflow-hidden w-[300px] h-[400px]">
+          <img
+            class="object-cover h-full"
+            width="300px"
+            height="500px"
+            src={img.url}
+          />
+        </article>
+      ))
+    }
+  </section>
+</Layout>
