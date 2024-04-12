@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useScramble } from 'use-scramble'
-const titles = ['Title 1', 'Title  2', 'Title 3']
+const titles = ['Product development', 'Production', 'Art direction', 'Accessories'] as const
+
 export default function HomeTitle () {
   const [titleIndex, setTitleIndex] = useState(0)
   const { ref } = useScramble({
@@ -16,9 +17,9 @@ export default function HomeTitle () {
         } else {
           setTitleIndex(titleIndex + 1)
         }
-      }, 1000)
+      }, 500)
     }
   })
 
-  return <h1 ref={ref} className="text-5xl font-bold" />
+  return <h1 ref={ref} className='text-5xl font-bold' />
 }
