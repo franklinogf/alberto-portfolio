@@ -1,28 +1,50 @@
 ---
+import MainLayout from "./MainLayout.astro";
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
+const items = [
+  { label: "About" },
+  { label: "Product Development" },
+  {
+    label: "Production",
+    children: ["Doomsday", "Journal Entry 001", "Accesories"],
+  },
+  { label: "Art Direction" },
+  { label: "Partnerships" },
+  { label: "Contact" },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f9f4e1;
-    color: #060200;
-  }
-</style>
+<MainLayout title={title}>
+  <div class="px-2">
+    <header>
+      <h1 class="uppercase font-extrabold text-5xl">Alberto Gonzalez</h1>
+    </header>
+    <div class="mt-8 grid grid-cols-[200px_1fr]">
+      <nav>
+        <ul class="space-y-2">
+          {
+            items.map((item) => (
+              <li class="font-extrabold text-xl">
+                {item.label}
+                {item.children && (
+                  <ul class="ml-2">
+                    {item.children.map((child) => (
+                      <li class="font-normal text-lg">{child}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <main class="w-full pb-5">
+        <slot />
+      </main>
+    </div>
+  </div>
+</MainLayout>
